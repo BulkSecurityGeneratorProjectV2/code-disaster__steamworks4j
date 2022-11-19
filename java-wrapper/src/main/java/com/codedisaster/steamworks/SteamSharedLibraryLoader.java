@@ -1,6 +1,7 @@
 package com.codedisaster.steamworks;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.UUID;
 
 class SteamSharedLibraryLoader {
@@ -185,7 +186,7 @@ class SteamSharedLibraryLoader {
 		// NIO temp file
 
 		try {
-			File file = File.createTempFile(folderName, null);
+			File file = Files.createTempFile(folderName, null).toFile();
 			if (file.delete()) {
 				// uses temp file path as destination folder
 				path = new File(file, fileName);
